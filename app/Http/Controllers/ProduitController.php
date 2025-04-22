@@ -11,20 +11,8 @@ class ProduitController extends Controller
     {
         $query = Produit::query();
 
-        if ($request->filled('marque') && $request->marque != 'Toutes') {
-            $query->where('marque', $request->marque);
-        }
-
         if ($request->filled('type') && $request->type != 'Toutes') {
-            $query->where('type_piece', $request->type);
-        }
-
-        if ($request->filled('dispo') && $request->dispo != 'Toutes') {
-            if ($request->dispo == 'En stock') {
-                $query->where('stock', '>', 0);
-            } else {
-                $query->where('stock', '<=', 0);
-            }
+            $query->where('type', $request->type);
         }
 
         if ($request->filled('prix')) {

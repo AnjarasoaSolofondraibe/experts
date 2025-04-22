@@ -13,7 +13,7 @@
             <h2 class="mb-3">{{ $produit->nom }}</h2>
             <p class="text-muted">{{ $produit->description }}</p>
 
-            <h4 class="text-success fw-bold">{{ number_format($produit->prix, 0) }} ariary</h4>
+            <h4 class="text-success fw-bold">{{ number_format($produit->prix, 0) }}$</h4>
 
             <form action="{{ route('panier.ajouter', $produit->id) }}" method="POST" class="mt-4">
                 @csrf

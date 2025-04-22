@@ -18,8 +18,8 @@
     {{-- Hero section --}}
     <div class="row align-items-center mb-5">
         <div class="col-md-6">
-            <h1 class="display-5 fw-bold">Bienvenue chez AutoParts</h1>
-            <p class="lead">Pièces de rechange fiables, service rapide, satisfaction garantie.</p>
+            <h1 class="display-5 fw-bold">Experts & Indicators</h1>
+            <p class="lead">Découvrez le robot de trading qui booste vos résultats. Essayez-le gratuitement en mode démo, sans risque !</p>
             <div class="mt-4 d-flex gap-3">
                 <a href="{{ route('catalogue') }}" class="btn btn-primary btn-lg">Voir le catalogue</a>
                 @guest
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <img src="{{ asset('images/autoparts.png') }}" alt="Auto Parts" class="img-fluid rounded shadow">
+            <img src="{{ asset('images/experts.jpg') }}" alt="experts" class="img-fluid rounded shadow">
         </div>
     </div>
 
@@ -40,27 +40,27 @@
         <div class="col-md-4 mb-3">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                    <i class="bi bi-gear display-4 text-primary mb-3"></i>
-                    <h5 class="card-title">Moteur</h5>
-                    <p class="card-text">Courroies, filtres, pièces d’allumage, et plus.</p>
+                    <i class="bi bi-robot display-4 text-primary mb-3"></i>
+                    <h5 class="card-title">Experts</h5>
+                    <p class="card-text">Gratuits, Payants, et plus.</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4 mb-3">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                    <i class="bi bi-car-front display-4 text-success mb-3"></i>
-                    <h5 class="card-title">Carrosserie</h5>
-                    <p class="card-text">Rétroviseurs, pare-chocs, feux et accessoires.</p>
+                    <i class="bi bi-graph-up-arrow display-4 text-success mb-3"></i>
+                    <h5 class="card-title">Indicateurs</h5>
+                    <p class="card-text">Libre, Pas cher, en promotion.</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4 mb-3">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                    <i class="bi bi-battery-charging display-4 text-warning mb-3"></i>
-                    <h5 class="card-title">Électricité</h5>
-                    <p class="card-text">Batteries, alternateurs, faisceaux, ampoules.</p>
+                    <i class="bi bi-gear display-4 text-warning mb-3"></i>
+                    <h5 class="card-title">Utilitaires</h5>
+                    <p class="card-text">Signals, copy trading, plugins.</p>
                 </div>
             </div>
         </div>
@@ -76,12 +76,15 @@
                     <div class="row justify-content-center">
                         @foreach ($chunk as $produit)
                             <div class="col-md-3">
-                                <div class="card mb-3 shadow-sm">
+                                <div class="card h-100 mb-3 shadow-sm">
                                     <img src="{{ asset('images/produits/' . $produit->image) }}" class="card-img-top object-fit-cover" style="height: 200px;" alt="{{ $produit->nom }}">
-                                    <div class="card-body text-center">
+                                    <div class="card-body text-center justify-content-end">
                                         <h5 class="card-title">{{ $produit->nom }}</h5>
-                                        <p class="text-success fw-bold">{{ number_format($produit->prix, 0) }} ar</p>
-                                        <a href="{{ route('produits.show', $produit->id) }}" class="btn btn-outline-info btn-sm">Voir</a>
+                                        <p class="">{{ $produit->description}}</p>     
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center gap-2">
+                                        <p class="text-success fw-bold mb-0">{{ number_format($produit->prix, 0) }}$</p>
+                                        <a href="{{ route('produits.show', $produit->id) }}" class="btn btn-outline-info btn-sm" style="height:32px;">Voir</a>
                                     </div>
                                 </div>
                             </div>

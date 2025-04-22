@@ -11,42 +11,20 @@
         <div class="col-md-3">
             <h5>Filtres</h5>
             <form method="GET" action="{{ route('catalogue') }}">
-                <div class="mb-3">
-                    <label for="marque" class="form-label">Marque</label>
-                    <select name="marque" class="form-select">
-                        <option value="Toutes">Toutes</option>
-                                <option value="Peugeot" {{ old('marque', request('marque')) == 'Peugeot' ? 'selected' : '' }}>Peugeot</option>
-                                <option value="Renault" {{ old('marque', request('marque')) == 'Renault' ? 'selected' : '' }}>Renault</option>
-                                <option value="BMW" {{ old('marque', request('marque')) == 'BMW' ? 'selected' : '' }}>BMW</option>
-                                <option value="Toyota" {{ old('marque', request('marque')) == 'Toyota' ? 'selected' : '' }}>Toyota</option>
-                                <option value="Volkswagen" {{ old('marque', request('marque')) == 'Volkswagen' ? 'selected' : '' }}>Volkswagen</option>
-                    </select>
-                </div>
+                
 
                 <div class="mb-3">
-                    <label for="type" class="form-label">Type de pièce</label>
+                    <label for="type" class="form-label">Type de produits</label>
                     <select name="type" class="form-select">
                         <option value="Toutes">Toutes</option>
-                        <option value="Filtre" {{ old('type', request('type')) == 'Filtre' ? 'selected' : '' }}>Filtre</option>
-                        <option value="Plaquette" {{ old('type', request('type')) == 'Plaquette' ? 'selected' : '' }}>Plaquette</option>
-                        <option value="Bougie" {{ old('type', request('type')) == 'Bougie' ? 'selected' : '' }}>Bougie</option>
-                        <option value="Batterie" {{ old('type', request('type')) == 'Batterie' ? 'selected' : '' }}>Batterie</option>
-                        <option value="Courroie" {{ old('type', request('type')) == 'Courroie' ? 'selected' : '' }}>Courroie</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="dispo" class="form-label">Disponibilité</label>
-                    <select name="dispo" class="form-select">
-                        <option value="Toutes">Toutes</option>
-                        <option value="En stock" {{ old('dispo', request('dispo')) == 'En stock' ? 'selected' : '' }}>En stock</option>
-                        <option value="Rupture" {{ old('dispo', request('dispo')) == 'Rupture' ? 'selected' : '' }}>Rupture</option>
+                        <option value="Expert" {{ old('type', request('type')) == 'Expert' ? 'selected' : '' }}>Expert</option>
+                        <option value="Indicateur" {{ old('type', request('type')) == 'Indicateur' ? 'selected' : '' }}>Indicateur</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label for="prix" class="form-label">Prix maximum</label>
-                    <input type="number" name="prix" class="form-control" placeholder="Ex: 100 ar">
+                    <input type="number" name="prix" class="form-control" placeholder="Ex: 100$">
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">Filtrer</button>
@@ -62,19 +40,19 @@
                             <img src="{{ asset('images/produits/'.$produit->image) }}" class="card-img-top object-fit-cover" style="height: 200px;" alt="{{ $produit->nom }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $produit->nom }}</h5>
-                                <p class="card-text">{{ $produit->marque }} - {{ $produit->type_piece }}</p>
-                                <p class="card-text text-success fw-bold">{{ number_format($produit->prix,0) }} ar</p>
+                                <p class="card-text">{{ $produit->company }} - {{ $produit->type }}</p>
+                                <p class="card-text text-success fw-bold">{{ number_format($produit->prix,0) }}$</p>
                             </div>
                             <div class="card-footer d-flex justify-content-end gap-2">
                                 {{-- Bouton fiche produit --}}
-                                <a href="{{ route('produits.show', $produit->id) }}" class="btn btn-sm btn-outline-secondary">
+                                <a href="{{ route('produits.show', $produit->id) }}" class="btn btn-sm btn-outline-secondary" style="height:30px;">
                                     Voir
                                 </a>
                             
                                 {{-- Bouton ajouter au panier --}}
                                 <form action="{{ route('panier.ajouter', $produit->id) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-sm btn-outline-primary">
+                                    <button type="submit" class="btn btn-sm btn-outline-primary" style="height:30px;">
                                         Ajouter
                                     </button>
                                 </form>

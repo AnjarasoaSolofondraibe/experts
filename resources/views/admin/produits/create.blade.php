@@ -16,20 +16,16 @@
             <textarea name="description" class="form-control">{{ old('description', $produit->description ?? '') }}</textarea>
         </div>
         <div class="mb-3">
-            <label for="marque" class="form-label">Marque</label>
-            <input type="text" name="marque" class="form-control" value="{{ old('marque', $produit->marque ?? '') }}" required>
+            <label for="company" class="form-label">Company</label>
+            <input type="text" name="company" class="form-control" value="{{ old('marque', $produit->company ?? '') }}" required>
         </div>
         <div class="mb-3">
-            <label for="type_piece" class="form-label">Type</label>
-            <input type="text" name="type_piece" class="form-control" value="{{ old('type_piece', $produit->type_piece ?? '') }}" required>
+            <label for="type" class="form-label">Type</label>
+            <input type="text" name="type" class="form-control" value="{{ old('type', $produit->type ?? '') }}" required>
         </div>
         <div class="mb-3">
             <label for="prix" class="form-label">Prix (€)</label>
             <input type="number" step="0.01" name="prix" class="form-control" value="{{ old('prix', $produit->prix ?? '') }}" required>
-        </div>
-        <div class="mb-3">
-            <label for="stock" class="form-label">Stock</label>
-            <input type="number" name="stock" class="form-control" value="{{ old('stock', $produit->stock ?? '') }}" required>
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>

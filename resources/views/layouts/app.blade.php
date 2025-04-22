@@ -94,8 +94,8 @@
     
                 <!-- À propos -->
                 <div class="col-md-4 mb-3">
-                    <h5 class="text-uppercase">AutoParts</h5>
-                    <p>Vente de pièces détachées auto en ligne, au meilleur prix. Livraison rapide partout à Madagascar.</p>
+                    <h5 class="text-uppercase">Experts & Indicators</h5>
+                    <p>Aucun engagement. Aucun risque. Testez gratuitement notre robot de trading en mode démo et jugez par vous-même.</p>
                 </div>
     
                 <!-- Liens utiles -->
@@ -117,7 +117,7 @@
                         <input type="email" name="email" class="form-control me-2" placeholder="Votre e-mail" required>
                         <button class="btn btn-success">OK</button>
                     </form>
-    
+                </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
