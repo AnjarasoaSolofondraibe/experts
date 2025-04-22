@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vortex75_app
+    container_name: vortex75_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+    ports:
+      - 9000:9000
+    networks:
+      - vortex
+
+  nginx:
+    image: nginx:alpine
+    container_name: vortex75_nginx
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - vortex
+
+  db:
+    image: mysql:5.7
+    container_name: vortex75_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: vortex
+      MYSQL_USER: vortex_user
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - vortex
+
+volumes:
+  dbdata:
+
+networks:
+  vortex:
